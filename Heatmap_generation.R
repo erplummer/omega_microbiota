@@ -17,9 +17,12 @@ plot(dend.taxa)
 metadata <- my.data.taxa[,1:2]
 metadata <- data.frame(my.data.taxa[, c("stage", "studyarm")])
 
-ha <- HeatmapAnnotation(df = metadata, col = list(stage =c("week 0" = "#d7191c", "week 12" = "#fdae61"), studyarm = c("Biotene" = "#abd9e9", "Listerine" = "#2c7bb6")))
+ha <- HeatmapAnnotation(df = metadata, col = list(stage =c("week 0" = "#d7191c", "week 12" = "#fdae61"), 
+                                                  studyarm = c("Biotene" = "#abd9e9", "Listerine" = "#2c7bb6")))
 
 col.heatmap <- colorRampPalette(c("gray95", "purple", "midnightblue"), space = "rgb")(99)
 
 #Figure 1
-Heatmap(t(data.TSS[,1:25]), name = "Relative abundance", col = col.heatmap,top_annotation = ha, column_dend_height = unit(3, "cm"), column_dend_reorder = FALSE, show_row_names = TRUE, show_column_names = FALSE, cluster_columns=dend.taxa, cluster_rows=FALSE, show_row_dend=FALSE)
+Heatmap(t(data.TSS[,1:25]), name = "Relative abundance", col = col.heatmap,top_annotation = ha, 
+        column_dend_height = unit(3, "cm"), column_dend_reorder = FALSE, show_row_names = TRUE, 
+        show_column_names = FALSE, cluster_columns=dend.taxa, cluster_rows=FALSE, show_row_dend=FALSE)
